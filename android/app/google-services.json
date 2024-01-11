@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "27023411763",
+    "project_id": "ngroupe-des-vainqueurs",
+    "storage_bucket": "ngroupe-des-vainqueurs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27023411763:android:8a9b6b34935f00c7153146",
+        "android_client_info": {
+          "package_name": "com.example.groupe_des_vainqueurs"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8t57Vkj24NXkaWZbD77PYASd0YiMD4dQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
