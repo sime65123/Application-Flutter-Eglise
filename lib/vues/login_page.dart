@@ -11,6 +11,7 @@ import 'package:groupe_des_vainqueurs/modeles/audios.dart';
 import 'package:groupe_des_vainqueurs/modeles/prayer_model.dart';
 import 'package:groupe_des_vainqueurs/modeles/testimony_model.dart';
 import 'package:groupe_des_vainqueurs/modeles/topicality_model.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -207,7 +208,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 20,
               ),
               Text(
-                'Bienvenue à toi, Cher Fidèle',
+                'welcome'.tr,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headline5?.copyWith(
                     color: Colors.blueGrey, fontWeight: FontWeight.bold),
@@ -233,7 +234,7 @@ class _LoginPageState extends State<LoginPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
-                              "Connectez-vous avec Google",
+                              'connectGoogle'.tr,
                               style: TextStyle(
                                   color: Colors.blueGrey,
                                   fontWeight: FontWeight.bold),
@@ -264,7 +265,7 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Text(
-                  'Découvrez et partagez les meilleures moment de prière',
+                  'discovery'.tr,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headline6?.copyWith(
                       color: Colors.blueGrey, fontWeight: FontWeight.bold),
@@ -298,11 +299,11 @@ class _LoginPageState extends State<LoginPage> {
           }
         })
           ..catchError((error, stackTrace) {
-            showNotification(context, 'Aucune connexion internet');
+            showNotification(context, 'noConnection'.tr);
             return Future.value(null);
           });
       } on SocketException catch (_) {
-        showNotification(context, 'Aucune connexion internet');
+        showNotification(context, 'noConnection'.tr);
       }
     }
   }

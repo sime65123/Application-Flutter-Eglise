@@ -5,6 +5,7 @@ import 'package:groupe_des_vainqueurs/Constant_Tools/colors.dart';
 import 'package:groupe_des_vainqueurs/modeles/topicality_model.dart';
 import 'package:groupe_des_vainqueurs/vues/topicaly_image.dart';
 import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
 class PostContainer extends StatefulWidget {
   final Topicality topicality;
@@ -38,10 +39,10 @@ class _PostContainerState extends State<PostContainer> {
             ),
           ),
           TopicalyImage(url: widget.topicality.topicalityUrlImg),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            child: _PostButton3(topicality: widget.topicality),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          //   child: _PostButton3(topicality: widget.topicality),
+          // ),
         ],
       ),
     );
@@ -124,7 +125,7 @@ class __PostButton3State extends State<_PostButton3> {
               color: Colors.grey[600],
               size: 20.0,
             ),
-            label: 'Partager',
+            label: 'share'.tr,
             onTap: () => print('partager'),
           ),
         ),
@@ -153,7 +154,7 @@ class _PostStats extends StatelessWidget {
                 color: Colors.grey[600],
                 size: 20.0,
               ),
-              label: 'J\'aime',
+              label: 'like'.tr,
               onTap: () {},
             ),
             _PostButton(
@@ -163,7 +164,7 @@ class _PostStats extends StatelessWidget {
                 color: Colors.grey[600],
                 size: 20.0,
               ),
-              label: 'Partager',
+              label: 'share'.tr,
               onTap: () => print('partager'),
             ),
           ],

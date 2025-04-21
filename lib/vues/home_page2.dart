@@ -3,6 +3,7 @@ import 'package:groupe_des_vainqueurs/Constant_Tools/colors.dart';
 import 'package:groupe_des_vainqueurs/vues/testimony_page.dart';
 import 'package:groupe_des_vainqueurs/vues/theme_prayer_page.dart';
 import 'package:groupe_des_vainqueurs/vues/topicality_page.dart';
+import 'package:get/get.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -48,15 +49,15 @@ class _HomeViewState extends State<HomeView>
               title: TabBar(
                 controller: _tabController,
                 isScrollable: true,
-                tabs: const <Widget>[
+                tabs: <Widget>[
                   Tab(
-                    text: "actualité",
+                    text: 'topical'.tr,
                   ),
                   Tab(
-                    text: "Témoignages",
+                    text: 'testimony'.tr,
                   ),
                   Tab(
-                    text: "Thème de priere",
+                    text: 'theme'.tr,
                   ),
                 ],
                 indicatorColor: Colors.orange[900],

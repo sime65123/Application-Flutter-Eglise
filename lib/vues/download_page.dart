@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:get/get.dart';
 
 // Création d'un widget stateful pour gérer l'état du lecteur audio
 class AudioList extends StatefulWidget {
@@ -66,13 +67,13 @@ class _AudioListState extends State<AudioList> {
       // Définir l'appbar du Scaffold
       appBar: AppBar(
         // Définir le titre de l'appbar
-        title: Text('Liste des fichiers audio'),
+        title: Text('view'.tr),
       ),
       // Définir le corps du Scaffold
       body: _audioFiles.isEmpty
           // Si la liste des fichiers audio est vide, afficher un widget Center avec un texte
           ? Center(
-              child: Text('Aucun fichier audio trouvé'),
+              child: Text('nothing'.tr),
             )
           // Sinon, afficher un widget ListView.builder pour afficher la liste des fichiers audio
           : ListView.builder(

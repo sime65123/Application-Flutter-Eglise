@@ -8,6 +8,7 @@ import 'package:groupe_des_vainqueurs/Constant_Tools/show_notification.dart';
 import 'package:groupe_des_vainqueurs/modeles/prayer_model.dart';
 import 'package:groupe_des_vainqueurs/vues/comments_page.dart';
 import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
 class PrayerThemePage extends StatefulWidget {
   @override
@@ -46,9 +47,7 @@ class _PrayerThemePageState extends State<PrayerThemePage> {
                           // Appeler la méthode checkIfLiked dans le paramètre future
                           future: PrayerModel().checkIfLiked(
                             (theme.idPrayerModel).toString(),
-                            Provider.of<User>(context, listen: false)
-                                .displayName
-                                .toString(),
+                            Provider.of<User>(context).displayName.toString(),
                           ),
                           // Construire le widget en fonction de l'état du futur
                           builder: (context, snapshot) {
@@ -67,26 +66,24 @@ class _PrayerThemePageState extends State<PrayerThemePage> {
                               ),
                               onPressed: () {
                                 // Si liked est vrai, appeler la méthode dislike, sinon like
-                                final wait = liked
+                                liked
                                     ? PrayerModel().dislike(
                                         (theme.idPrayerModel).toString(),
-                                        Provider.of<User>(context,
-                                                listen: false)
+                                        Provider.of<User>(context)
                                             .displayName
                                             .toString(),
                                       )
                                     : PrayerModel().likePrayer(
                                         (theme.idPrayerModel).toString(),
-                                        Provider.of<User>(context,
-                                                listen: false)
+                                        Provider.of<User>(context)
                                             .displayName
                                             .toString(),
                                       );
                                 // Mettre à jour l'état du widget pour changer la couleur du bouton
-                                wait.then((value) => setState(() {
-                                      // Inverser la valeur de liked
-                                      liked = !liked;
-                                    }));
+                                setState(() {
+                                  // Inverser la valeur de liked
+                                  liked = !liked;
+                                });
                               },
                             );
                           },
@@ -127,7 +124,7 @@ class _PrayerThemePageState extends State<PrayerThemePage> {
                   builder: (context) {
                     return AlertDialog(
                         title: Center(
-                          child: Text('Ajouter un thème de prière',
+                          child: Text('addTheme'.tr,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.blueGrey)),
@@ -138,25 +135,25 @@ class _PrayerThemePageState extends State<PrayerThemePage> {
                             controller: _titleController,
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return 'Veuillez entrer un titre';
+                                return 'enterTitle'.tr;
                               }
                               return null;
                             },
                             decoration: InputDecoration(
-                              labelText: 'Titre',
+                              labelText: 'title'.tr,
                               border: OutlineInputBorder(),
                             ),
                           ),
                         ),
                         actions: [
                           TextButton(
-                            child: Text('Annuler'),
+                            child: Text('cancel'.tr),
                             onPressed: () {
                               Navigator.pop(context);
                             },
                           ),
                           TextButton(
-                            child: Text('Valider',
+                            child: Text('valid'.tr,
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white)),
@@ -174,24 +171,22 @@ class _PrayerThemePageState extends State<PrayerThemePage> {
                               if (_formKey.currentState!.validate()) {
                                 // appel de la méthode validate() du formulaire
                                 // code à exécuter si le formulaire est valide
-                                showNotification(context, "En cours ....");
+                                showNotification(context, 'inProgress'.tr);
 
                                 PrayerModel prayerModel = PrayerModel(
                                     title: _titleController.text,
                                     likes: 0,
                                     nbr_comments: 0,
-                                    idUserPost: Provider.of<User?>(context,
-                                                listen: false)
-                                            ?.uid ??
-                                        '',
+                                    idUserPost:
+                                        Provider.of<User?>(context)?.uid ?? '',
                                     date_publication: Timestamp.now());
                                 PrayerModel().addPrayer(prayerModel);
-                                showNotification(context, "Succes");
+                                showNotification(context, 'success'.tr);
                                 Navigator.pop(context);
                               } else {
                                 // code à exécuter si le formulaire n'est pas valide
-                                print('Le formulaire n\'est pas valide');
-                                showNotification(context, "Echec");
+                                print('invalid'.tr);
+                                showNotification(context, 'fail'.tr);
                               }
                             },
                           )

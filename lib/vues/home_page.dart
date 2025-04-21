@@ -1,8 +1,10 @@
 // Exemple de code qui utilise le widget Transform
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:groupe_des_vainqueurs/Constant_Tools/colors.dart';
 import 'package:groupe_des_vainqueurs/controlleurs/repository/google_auth.dart';
+import 'package:groupe_des_vainqueurs/controlleurs/traduction.dart';
 import 'package:groupe_des_vainqueurs/vues/download_page.dart';
 import 'package:groupe_des_vainqueurs/vues/home_page2.dart';
 import 'package:groupe_des_vainqueurs/vues/login_page.dart';
@@ -22,9 +24,9 @@ class _HomePageState extends State<HomePage> {
 
   // Définir les titres des onglets
   List<String> _tabTitles = [
-    'Accueil',
-    'Podcast',
-    'Téléchargement',
+    'homePage'.tr,
+    'podcast'.tr,
+    'downloadPage'.tr,
   ];
 
   // Définir les icônes des onglets
@@ -75,7 +77,7 @@ class _HomePageState extends State<HomePage> {
         //leading: Icon(Icons.app_registration),
         // Afficher le nom de l'application à gauche
         title: Text(
-          'Groupe Des Vainqueurs',
+          'nomApp'.tr,
           style: TextStyle(color: Colors.blueGrey),
         ),
       ),
@@ -111,18 +113,19 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               leading: Icon(Icons.settings),
               title: Text(
-                'Paramètres',
+                'param'.tr,
                 style: TextStyle(
                     color: Colors.blueGrey, fontWeight: FontWeight.bold),
               ),
               onTap: () {
+                Navigator.pushNamed(context, 'setting');
                 // Faire quelque chose quand on clique sur cet item
               },
             ),
             ListTile(
               leading: Icon(Icons.help),
               title: Text(
-                'Aide',
+                'help'.tr,
                 style: TextStyle(
                     color: Colors.blueGrey, fontWeight: FontWeight.bold),
               ),
@@ -133,7 +136,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               leading: Icon(Icons.info),
               title: Text(
-                'A propos',
+                'about'.tr,
                 style: TextStyle(
                     color: Colors.blueGrey, fontWeight: FontWeight.bold),
               ),
@@ -145,24 +148,25 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               leading: Icon(Icons.money),
               title: Text(
-                'Faire un don',
+                'make'.tr,
                 style: TextStyle(
                     color: Colors.blueGrey, fontWeight: FontWeight.bold),
               ),
               onTap: () {
                 // Faire quelque chose quand on clique sur cet item
+                Navigator.of(context).pushNamed('donpage');
               },
             ),
             ListTile(
               leading: Icon(Icons.exit_to_app),
               title: Text(
-                'Déconnexion',
+                'deconnect'.tr,
                 style: TextStyle(
                     color: Colors.blueGrey, fontWeight: FontWeight.bold),
               ),
               onTap: () {
                 AuthService().signOut();
-                Navigator.of(context).pushNamed('connexion');
+                Navigator.of(context).pushNamed('connect'.tr);
                 // Faire quelque chose quand on clique sur cet item
               },
             ),

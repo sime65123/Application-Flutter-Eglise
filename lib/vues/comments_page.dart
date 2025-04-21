@@ -5,6 +5,7 @@ import 'package:groupe_des_vainqueurs/Constant_Tools/colors.dart';
 import 'package:groupe_des_vainqueurs/modeles/audios.dart';
 import 'package:groupe_des_vainqueurs/modeles/prayer_model.dart';
 import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
 class PrayerCommentsScreen extends StatefulWidget {
   // Passer l'id du thème de prière en paramètre du constructeur
@@ -107,7 +108,7 @@ class _PrayerCommentsScreenState extends State<PrayerCommentsScreen> {
           // Si le stream n'a pas encore de données, afficher un indicateur de chargement
           if (!snapshot.hasData) {
             return Center(
-              child: Text("Aucun commentaire Pour L'instant!"),
+              child: Text('noComment'.tr),
             );
           }
 
@@ -134,11 +135,11 @@ class _PrayerCommentsScreenState extends State<PrayerCommentsScreen> {
             context: context,
             builder: (context) {
               return AlertDialog(
-                title: Text('Ajouter un commentaire'),
+                title: Text('add'.tr),
                 content: TextField(
                   controller: _commentController,
                   decoration: InputDecoration(
-                      hintText: 'Écrivez votre commentaire ici'),
+                      hintText: 'commentHere'.tr),
                 ),
                 actions: [
                   TextButton(
@@ -146,7 +147,7 @@ class _PrayerCommentsScreenState extends State<PrayerCommentsScreen> {
                       // Fermer le dialogue
                       Navigator.pop(context);
                     },
-                    child: Text('Annuler'),
+                    child: Text('cancel'.tr),
                   ),
                   TextButton(
                     onPressed: () {
@@ -162,7 +163,7 @@ class _PrayerCommentsScreenState extends State<PrayerCommentsScreen> {
                       // Fermer le dialogue
                       Navigator.pop(context);
                     },
-                    child: Text('Envoyer'),
+                    child: Text('send'.tr),
                   ),
                 ],
               );

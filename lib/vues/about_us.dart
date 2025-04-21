@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatelessWidget {
@@ -7,7 +8,7 @@ class AboutPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'À propos',
+          'about'.tr,
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blueGrey),
         ),
       ),
@@ -32,7 +33,7 @@ class AboutPage extends StatelessWidget {
                   SizedBox(width: 20),
                   Center(
                     child: Text(
-                      'Eglise Messianique-Groupe Des Vainqueurs',
+                      'eglise'.tr,
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
@@ -47,7 +48,7 @@ class AboutPage extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(16),
               child: Text(
-                'L’application vise à enrichir la vie spirituelle des utilisateurs, à les aider à grandir dans la foi, et à les connecter avec d’autres chrétiens.',
+                'description'.tr,
                 style: TextStyle(
                   fontSize: 18,
                 ),
@@ -58,12 +59,12 @@ class AboutPage extends StatelessWidget {
             // Informations sur le développeur
             ListTile(
               leading: Icon(Icons.person),
-              title: Text('Développeur'),
+              title: Text('dev'.tr),
               subtitle: Text('Edwin Tchakounte'),
             ),
             ListTile(
               leading: Icon(Icons.location_on),
-              title: Text('Localisation'),
+              title: Text('location'.tr),
               subtitle: Text('Yaoundé, Cameroun'),
             ),
             ListTile(
@@ -71,7 +72,7 @@ class AboutPage extends StatelessWidget {
                   //----------------------------------------------------
 
                   Icon(Icons.phone),
-              title: Text('Téléphone'),
+              title: Text('phone'.tr),
               subtitle: Text(
                   '+237 673 398 046'), // Vous pouvez compléter votre numéro
             ),
@@ -86,7 +87,7 @@ class AboutPage extends StatelessWidget {
             // Informations sur la licence
             ListTile(
               leading: Icon(Icons.verified_user),
-              title: Text('Licence'),
+              title: Text('license'.tr),
               subtitle: Text('GNU GPL v3'),
             ),
             // Informations sur les sources
@@ -110,7 +111,7 @@ class AboutPage extends StatelessWidget {
                       ),
                       SizedBox(width: 16),
                       Text(
-                        'Discuter sur WhatsApp',
+                        'discuss'.tr,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
