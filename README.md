@@ -51,7 +51,7 @@ Cette application mobile vise à enrichir la vie spirituelle des utilisateurs, �
 
 1. **Cloner le dépôt**
    ```
-   git clone [URL_DU_REPO]
+   git clone https://github.com/sime65123/Application-Flutter-Eglise.git
    cd groupe_des_vainqueurs
    ```
 
